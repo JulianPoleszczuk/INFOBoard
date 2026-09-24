@@ -28,6 +28,11 @@ export function getInitialData(roomName: string): ImportedDataState {
     resizingElement: null,
     draggingElement: null,
     ...localState?.appState,
+    // figury (kwadrat, romb) domyślnie z ostrymi rogami i idealnie prostymi liniami
+    // (styl "Architekt") — zaokrąglenia i odręczny styl zniekształcają zapis
+    // matematyczny; nadpisujemy też stan zapisany wcześniej w localStorage
+    currentItemRoundness: "sharp" as const,
+    currentItemRoughness: 0,
   }
   let localFiles = localState?.files ?? {}
 
