@@ -79,7 +79,7 @@ function IndexPage() {
     window.draw = draw
   }, [draw])
 
-  const saveStateToLocalStorage = config.IS_READONLY_MODE ? useCallback(noop, []) : useSaveState(draw, config.IS_READONLY_MODE)
+  const saveStateToLocalStorage = useSaveState(draw, config.ROOM_NAME, config.IS_READONLY_MODE)
 
   const saveToServerImmediately = config.IS_READONLY_MODE
     ? useCallback(noop, [])
